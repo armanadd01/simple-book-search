@@ -34,7 +34,7 @@ searchBtn.addEventListener("click", function() {
 
 
 const showSearchResult = books => {
-
+    filterData.innerText = "";
     // Error Handing and showing search result number
     if (books.docs.length === 0) {
         errorDiv.innerText = "No Search Result Found";
