@@ -1,3 +1,4 @@
+// declare all the variable
 const searchInput = document.getElementById("searchInput");
 const searchBtn = document.getElementById("search-btn");
 const bookContainer = document.getElementById("book-container");
@@ -6,7 +7,7 @@ const spinner = document.getElementById("spinner");
 const filterData = document.getElementById("filter-data");
 
 
-
+// search button and fetching API
 searchBtn.addEventListener("click", function() {
     const searchText = searchInput.value;
     if (searchText === "") {
@@ -15,47 +16,39 @@ searchBtn.addEventListener("click", function() {
     }
     //   Clear
     bookContainer.innerHTML = "";
-    // bookDetails.innerHTML = "";
     const url = `https://openlibrary.org/search.json?q=${searchText}`;
     spinner.classList.remove("d-none");
     fetch(url)
         .then((res) => res.json())
         .then((data) => {
-            // spinnner and showing data
+            // spinner and showing data
             setTimeout(() => {
                 spinner.classList.add("d-none");
-                showSearchResult(data.docs);
-                filteredData(data.numFound);
-            }, 1000);
+                showSearchResult(data);
+            }, 1500);
         })
         .finally(() => {
             searchInput.value = "";
         });
 });
 
- const filteredData = numberFound => {
-    if (numberFound !== 0){
-        filterData.innerText = `showing 20 results of ${numberFound}`;
-    } else {
-        filterData.innerText = ""
-    }
- }
 
-const showSearchResult = docs => {
+const showSearchResult = books => {
 
-    // Error Handing
-    if (docs.length === 0) {
+    // Error Handing and showing search result number
+    if (books.docs.length === 0) {
         errorDiv.innerText = "No Search Result Found";
-    } else {
+    } else if(books.docs.length >= 20) {
         errorDiv.innerText = "";
+        books.docs.length = 20;
+        filterData.innerText = `showing ${books.docs.length} results of ${books.numFound}`
+    }else if(books.docs.length <= 20)  {
+        errorDiv.innerText = "";
+        filterData.innerText = `showing ${books.docs.length} results of ${books.numFound}`
     }
     
-    // filtered data number
-    if (docs.length !== 0){
-        docs.length = 20;
-    }
 
-    docs.forEach(book => {
+    books.docs.forEach(book => {
         //Author Check 
         const isValidated = validation => {
             if (validation !== undefined) {
