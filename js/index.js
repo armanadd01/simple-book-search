@@ -16,7 +16,7 @@ searchBtn.addEventListener("click", function() {
     //   Clear
     bookContainer.innerHTML = "";
     // bookDetails.innerHTML = "";
-    const url = `http://openlibrary.org/search.json?q=${searchText}`;
+    const url = `https://openlibrary.org/search.json?q=${searchText}`;
     spinner.classList.remove("d-none");
     fetch(url)
         .then((res) => res.json())
