@@ -22,12 +22,11 @@ searchBtn.addEventListener("click", function () {
   fetch(url)
     .then((res) => res.json())
     .then((data) => {
-      // Setting a timer of 1.5s, before removing the spinnner, and showing data
-    //   console.log(data.docs);
+      // spinnner and showing data
       setTimeout(() => {
         spinner.classList.add("d-none");
         showSearchResult(data.docs);
-      }, 1500);
+      }, 1000);
     })
     .finally(() => {
       searchInput.value = "";
