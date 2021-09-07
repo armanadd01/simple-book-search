@@ -61,10 +61,14 @@ const showSearchResult = docs => {
                 <h5 class="card-title">${isValidated(book.title)}</h5>
                 <h6 class="card-title">Author Name: ${isValidated(book.author_name)}</h6>
                 <p class="card-text">Published: ${isValidated(book.first_publish_year)}</p>
-                <p class="card-text">Publisher Name: ${isValidated(book.publisher[0])}</p>
                 </div>
             </div>
       `;
         bookContainer.appendChild(div);
     });
+}
+
+for (let i = 0; i < array.length; i++) {
+    const element = array[i];
+    
 }
