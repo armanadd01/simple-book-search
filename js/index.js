@@ -62,7 +62,7 @@ const showSearchResult = books => {
         div.classList.add("col-md-3");
         div.innerHTML = `
             <div class="card mt-3" style="width: 18rem;">
-                <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-L.jpg" class="card-img-top img-fluid" alt="...">
+                <img src="https://covers.openlibrary.org/b/id/${book.cover_i}-M.jpg" class="card-img-top img-fluid" alt="...">
                 <div class="card-body">
                 <h5 class="card-title">${isValidated(book.title)}</h5>
                 <h6 class="card-title">Author Name: ${isValidated(book.author_name)}</h6>
