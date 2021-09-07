@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My fevorite book</title>
+    <title>My favorite book</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
 </head>
 
@@ -22,13 +21,18 @@
         <!-- Search result starts here -->
         <section class="container mt-3">
             <!-- Error if don't find the data -->
-            <div id="error" class="text-center fw-3 fs-5"></div>
+            <div class="text-center">
+                <p id="error" class="fs-3 fw-bold my-3"></p>
+            </div>
 
             <!-- Show the result number Number -->
-            <div id="filter-data" class="text-center fw-3 fs-5"></div>
+            <div  class="text-center results-number my-3">
+                <p id="filter-data" class="fs-3 fw-bold"></p>
+            </div>
+
             <!-- Spinner arrived on search -->
             <div class="text-center">
-                <div id="spinner" class="spinner-border d-none" role="status">
+                <div id="spinner" class="spinner-border text-danger d-none" role="status">
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
